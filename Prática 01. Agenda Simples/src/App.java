@@ -10,7 +10,6 @@ public class App {
     public static void main(String[] args) throws Exception { 
         List<Pessoa> pessoas = new ArrayList<Pessoa>();
 
-        
         Scanner sc = new Scanner(System.in);
 
         System.out.printf("Insira a quantidade de pessoas a ser cadastrada: ");
