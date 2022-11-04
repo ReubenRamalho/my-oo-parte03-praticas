@@ -44,15 +44,12 @@ public class App {
                             System.out.println("\nERRO 003: O número da Matrícula deve conter apenas números.\nTente novamente.\n");
                             sc.nextLine();
                             continue;
-                        }
-                            
-                        else
-                            break;             
+                        }                         
+                        else break;             
                     }
-                        Aluno aluno = new Aluno(nome, email, data_nascimento, matricula);
-                        alunos.add(aluno);
-                        pessoas.add(aluno);
-                    
+                    Aluno aluno = new Aluno(nome, email, data_nascimento, matricula);
+                    alunos.add(aluno);
+                    pessoas.add(aluno); 
                     break;
                     
                 case 'n':
@@ -79,10 +76,8 @@ public class App {
                 Aluno al = (Aluno) person;
                 al.print_pessoa();
             }
-            else
-                person.print_pessoa();
+            
+            else person.print_pessoa();
         }
-
-
     }
 }
