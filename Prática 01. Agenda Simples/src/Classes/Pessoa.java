@@ -12,11 +12,11 @@ public class Pessoa {
     private LocalDate data_nascimento;
     private int idade;
 
-    public Pessoa(String nome, String email, String data_nascimento){
+    public Pessoa(String nome, String email, LocalDate data_nascimento){
         this.nome = nome;
         this.email = email;
-        this.data_nascimento = LocalDate.parse(data_nascimento, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-        idade = Period.between(this.data_nascimento, LocalDate.now()).getYears();
+        this.data_nascimento = data_nascimento;
+        idade = Period.between(data_nascimento, LocalDate.now()).getYears();
     }
 
     public String nome_get(){

@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import Classes.*;
 
 public class App {
@@ -9,7 +11,9 @@ public class App {
         List<Pessoa> responsaveis = new ArrayList<Pessoa>();
         List<Aluno> alunos = new ArrayList<Aluno>();
         
-        String nome, email, data_nascimento, matricula;
+        String nome, email, data_str, matricula;
+
+        LocalDate data_nascimento;
 
         Scanner sc = new Scanner(System.in);
 
@@ -35,7 +39,14 @@ public class App {
                         email = sc.nextLine();
 
                         System.out.printf("Insira a data de nascimento no formato (dd-MM-yyyy): ");
-                        data_nascimento = sc.nextLine();
+                        try{
+                            data_str = sc.nextLine();
+                            data_nascimento = LocalDate.parse(data_str, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+                        }
+                        catch(Exception e){
+                            System.out.println("\nERRO 001: Data inválida.\nTente novamente.\n");
+                            continue;
+                        }
 
                         System.out.printf("Insira a matricula: ");
                         try{
@@ -61,19 +72,27 @@ public class App {
                     
                 case 'n':
                 case 'N':
-                    System.out.printf("Insira o nome: ");
-                    nome = sc.nextLine();
-                    
-                    System.out.printf("Insira o email: ");
-                    email = sc.nextLine();
+                    while(true){
+                        System.out.printf("Insira o nome: ");
+                        nome = sc.nextLine();
+                        
+                        System.out.printf("Insira o email: ");
+                        email = sc.nextLine();
 
-                    System.out.printf("Insira a data de nascimento no formato (dd-MM-yyyy): ");
-                    data_nascimento = sc.nextLine();
-
+                        System.out.printf("Insira a data de nascimento no formato (dd-MM-yyyy): ");
+                        try{
+                            data_str = sc.nextLine();
+                            data_nascimento = LocalDate.parse(data_str, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+                        }
+                        catch(Exception e){
+                            System.out.println("\nERRO 001: Data inválida.\nTente novamente.\n");
+                            continue;
+                        }
+                        break;
+                    }
                     Pessoa responsavel = new Pessoa(nome, email, data_nascimento);
                     responsaveis.add(responsavel);
                     pessoas.add(responsavel);
-
                     break;
             }
         }
