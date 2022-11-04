@@ -38,8 +38,15 @@ public class App {
                         data_nascimento = sc.nextLine();
 
                         System.out.printf("Insira a matricula: ");
-                        matricula = sc.next(".{5}");
-                        
+                        try{
+                            matricula = sc.next(".{5}");
+                        }
+                        catch (Exception e){
+                            System.out.println("\nERRO 002: O númedo de Matrícula deve conter apenas 5 digitos.\nTente novamente.\n");
+                            sc.nextLine();
+                            continue;
+                        }
+
                         if (!(matricula.matches("[0-9]+"))){
                             System.out.println("\nERRO 003: O número da Matrícula deve conter apenas números.\nTente novamente.\n");
                             sc.nextLine();
