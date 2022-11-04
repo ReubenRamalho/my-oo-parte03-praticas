@@ -11,7 +11,7 @@ public class Aluno extends Pessoa {
 
     public void print_pessoa(){
         super.print_pessoa();
-        System.out.println("\nMatricula: " + matricula);
+        System.out.println("Matricula: " + matricula);
     }
     
 }

@@ -27,25 +27,34 @@ public class App {
 
                 case 'y':
                 case 'Y':
-                    System.out.printf("Insira o nome: ");
-                    nome = sc.nextLine();
+                    while(true){
+                        System.out.printf("Insira o nome: ");
+                        nome = sc.nextLine();
+                        
+                        System.out.printf("Insira o email: ");
+                        email = sc.nextLine();
+
+                        System.out.printf("Insira a data de nascimento no formato (dd-MM-yyyy): ");
+                        data_nascimento = sc.nextLine();
+
+                        System.out.printf("Insira a matricula: ");
+                        matricula = sc.next(".{5}");
+                        
+                        if (!(matricula.matches("[0-9]+"))){
+                            System.out.println("\nERRO 003: O número da Matrícula deve conter apenas números.\nTente novamente.\n");
+                            sc.nextLine();
+                            continue;
+                        }
+                            
+                        else
+                            break;             
+                    }
+                        Aluno aluno = new Aluno(nome, email, data_nascimento, matricula);
+                        alunos.add(aluno);
+                        pessoas.add(aluno);
                     
-                    System.out.printf("Insira o email: ");
-                    email = sc.nextLine();
-
-                    System.out.printf("Insira a data de nascimento no formato (dd-MM-yyyy): ");
-                    data_nascimento = sc.nextLine();
-
-                    System.out.printf("Insira a matricula: ");
-                    matricula = sc.nextLine();
-
-                    Aluno aluno = new Aluno(nome, email, data_nascimento, matricula);
-                    alunos.add(aluno);
-                    pessoas.add(aluno);
-
                     break;
                     
-
                 case 'n':
                 case 'N':
                     System.out.printf("Insira o nome: ");
