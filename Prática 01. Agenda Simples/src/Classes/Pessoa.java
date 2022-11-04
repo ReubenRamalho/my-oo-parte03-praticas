@@ -25,9 +25,9 @@ public class Pessoa {
 
     public void print_pessoa(){
         System.out.println
-        ("Nome: " + nome + 
+        ("\nNome: " + nome + 
         "\nE-Mail: " + email +
-        "\nData de Nascimento: " + data_nascimento +
+        "\nData de Nascimento: " + data_nascimento.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) +
         "\nIdade: " + idade
         );
     }
