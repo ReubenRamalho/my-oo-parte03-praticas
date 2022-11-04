@@ -41,6 +41,9 @@ public class App {
 
                     Aluno aluno = new Aluno(nome, email, data_nascimento, matricula);
                     alunos.add(aluno);
+                    pessoas.add(aluno);
+
+                    break;
                     
 
                 case 'n':
@@ -56,13 +59,21 @@ public class App {
 
                     Pessoa responsavel = new Pessoa(nome, email, data_nascimento);
                     responsaveis.add(responsavel);
+                    pessoas.add(responsavel);
+
+                    break;
             }
         }
-    sc.close();
+    
+        for(Pessoa person : pessoas){
+            if(person instanceof Aluno){
+                Aluno al = (Aluno) person;
+                al.print_pessoa();
+            }
+            else
+                person.print_pessoa();
+        }
 
-    for(Pessoa resp : responsaveis){
-        resp.print_pessoa();
-    }
 
     }
 }
