@@ -101,7 +101,7 @@ public class App {
                         System.out.println("Digite uma resposta válida!\n");
                         continue;    
                 }break;
-            }
+            }sc.close();
         }
     
         for(Pessoa person : pessoas){
@@ -118,17 +118,88 @@ public class App {
             "1: Lista de Resposáveis\n" +
             "2: Lista de Alunos\n" +
             "3: Espeficicar contato\n" +
-            "0: Encerrar\n\n");
+            "0: Encerrar\n");
             System.out.printf("Opção:");
             int resp = sc.nextInt();
 
             switch(resp){
+                
                 case 1:
+                    for(Pessoa person : responsaveis)
+                        person.print_pessoa();
+                    break;
+                
+                case 2:
+                    for(Aluno al : alunos)
+                        al.print_pessoa();
+                    break;
 
+                case 3:
+                    print_espc(pessoas);
+                    break;
 
+                case 0:
+                    System.exit(0);
 
-
+                default:
+                    System.out.println("Digite uma resposta válida!\n");
+                    continue; 
             }
         }    
+    }
+
+    static void print_espc(List<Pessoa> pessoas){
+        Scanner sc = new Scanner(System.in);
+        
+        while(true){
+            System.out.println(
+                "\n----------Menu----------\n" +
+                "1: Especificar por índice\n" +
+                "2: Especificar por Nome\n");   
+            
+            System.out.printf("Opção:");
+            int resp = sc.nextInt();
+
+            switch(resp){
+
+                case 1:
+                    System.out.printf("\nInsira o índice do contato (obs: O index começa em 1): ");
+                    while(true){
+                        int ctrl = sc.nextInt();
+
+                        try {
+                            pessoas.get(ctrl - 1).print_pessoa();
+                        } catch (Exception e) {
+                            System.out.println("Insira um index válido:");
+                            continue;
+                        }break;
+                    }break;
+
+                case 2:
+                    int i = 1;
+                    while(i == 1){
+                        System.out.printf("\nInsira um nome de contato cadastrado: ");
+                        String nome_contato = sc.next();
+
+                        for(Pessoa person : pessoas){
+                                if(person instanceof Aluno && nome_contato.equals(person.get_nome())){
+                                    Aluno al = (Aluno) person;
+                                    al.print_pessoa();
+                                    i = 0;
+                                    break;
+                                }
+                                else if(nome_contato.equals(person.get_nome())){
+                                    person.print_pessoa();
+                                    i = 0;
+                                    break;     
+                                }                             
+                        }
+                    }break;
+
+                default:
+                    System.out.println("Digite uma resposta válida!\n");
+                    continue;
+            }break;
+        }sc.close();
     }
 }
