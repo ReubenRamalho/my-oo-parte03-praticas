@@ -1,0 +1,28 @@
+a)
+Classe Pessoa(Classe Mãe)
+
+Atributos: 
+- String nome;
+- String email;
+- LocalDate data_nascimento;
+- int idade;
+
+Métodos:
+
++ Método Construtor
+
++ get_nome
+
++ print_pessoa
+
+Classe Aluno(Classe Filha)
+
+Atributos:
+- String Matrícula;
+
+Métodos:
+
+Mesmos da Classe mãe com adição do atributo matrícula
+
+d)Seria Criada uma Classe Professorfilha da Classe Aluno com um atributo a mais que seria a disciplina associada ao professor.
+
