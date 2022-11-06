@@ -1,0 +1,30 @@
+a) As Classes pertecem ao memos Package
+
+Classe Televisão
+
+Atributos:
+- int volume
+- int num_canal
+- final String[] list_canal
+
+Métodos:
+
+# void aumetar_volume()
+# void diminuir_volume()
+# void next_canal()
+# void previ_canal()
+# void set_canal(int num_canal)
+# int get_num_canal()
+# void get_info()
+
+Classe ControleRemoto
+
+Métodos:
++ void aumetar_volume(Televisao tv)
++ void diminuir_volume(Televisao tv)
++ void next_canal(Televisao tv)
++ void previ_canal(Televisao tv)
++ void set_canal(Televisao tv, int num_canal)
++ void get_info(Televisao tv)
+
+c)Apenas com a mudança do nome das Classes, Atributos e Metodos. Pois a Lógica de todos os Eletrodomésticos controlados por controle é a mesma
