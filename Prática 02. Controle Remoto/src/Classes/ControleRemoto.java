@@ -18,8 +18,8 @@ public class ControleRemoto {
         tv.previ_canal();
     }
 
-    public void set_canal(Televisao tv){
-        tv.set_canal(tv.get_num_canal());
+    public void set_canal(Televisao tv, int num_canal){
+        tv.set_canal(num_canal);
     }
 
     public void get_info(Televisao tv){
